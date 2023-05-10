@@ -17,9 +17,9 @@ class VerticalalBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       Container(
-        decoration: const BoxDecoration(
-          color: Color(0xFF176BFC),
-          borderRadius: BorderRadius.all(
+        decoration: BoxDecoration(
+          color: Theme.of(context).primaryColor,
+          borderRadius: const BorderRadius.all(
             Radius.circular(15),
           ),
         ),
