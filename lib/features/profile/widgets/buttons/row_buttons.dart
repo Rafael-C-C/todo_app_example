@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app_tus_test/core/widgets/buttons/reusable_elevated_button.dart';
+import 'package:todo_app_tus_test/core/widgets/buttonB/reusable_elevated_buttonB.dart';
 
 class ButtonsRows extends StatelessWidget {
   final String tittle1;

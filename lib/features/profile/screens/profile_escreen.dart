@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_tus_test/features/login/screens/login_screen.dart';
-import 'package:todo_app_tus_test/features/profile/screens/login_screen.dart';
+import 'package:todo_app_tus_test/features/login/screens/login_screenB.dart';
 import 'package:todo_app_tus_test/features/profile/widgets/Text/daily_text.dart';
 import 'package:todo_app_tus_test/features/profile/widgets/appBar/profile_appbar.dart';
 import 'package:todo_app_tus_test/features/profile/widgets/Text/row_text_indicators.dart';
