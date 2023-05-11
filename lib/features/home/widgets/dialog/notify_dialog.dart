@@ -59,8 +59,8 @@ class NotifyDialog extends StatelessWidget {
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    ResizeableText(text: 'Aún no tienes notificaciones:)')
+                  children: [
+                    ElevatedButton(onPressed: () {}, child: const Text("Hola"))
                   ],
                 ),
               )

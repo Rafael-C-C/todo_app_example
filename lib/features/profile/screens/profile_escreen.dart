@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_tus_test/features/login/screens/login_screen.dart';
 import 'package:todo_app_tus_test/features/login/screens/login_screenB.dart';
+import 'package:todo_app_tus_test/features/login/screens/login_screenP.dart';
 import 'package:todo_app_tus_test/features/profile/widgets/Text/daily_text.dart';
 import 'package:todo_app_tus_test/features/profile/widgets/appBar/profile_appbar.dart';
 import 'package:todo_app_tus_test/features/profile/widgets/Text/row_text_indicators.dart';
@@ -35,10 +36,12 @@ class ProfileScreen extends StatelessWidget {
                           builder: (context) => const LoginScreen()));
                     },
                     press2: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginScreen2()));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const LoginScreen2()));
                     },
                     press3: () {
-                      print('3');
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const LoginScreenP()));
                     },
                   )
                 ],

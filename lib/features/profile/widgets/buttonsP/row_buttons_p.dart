@@ -4,7 +4,7 @@ import 'package:todo_app_tus_test/core/widgets/buttonP/reusable_elevated_buttonP
 class RowButtonP extends StatelessWidget {
   final String title1, title2, title3;
   final void Function()? press1, press2, press3;
-  final double horizontal , vertical;
+  final double horizontal, vertical;
 
   const RowButtonP(
       {super.key,
@@ -13,11 +13,14 @@ class RowButtonP extends StatelessWidget {
       required this.title3,
       this.press1,
       this.press2,
-      this.press3,  required this.horizontal, required this.vertical});
+      this.press3,
+      required this.horizontal,
+      required this.vertical});
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ReusableElevatedButtonP(
           title: title1,
