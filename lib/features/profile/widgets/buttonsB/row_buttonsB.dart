@@ -30,7 +30,7 @@ class ReusableRowButtonBryan extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const LoginScreen2()));
+                      builder: (context) => const LoginScreenB()));
             },
           ),
           ReusabelButton(
