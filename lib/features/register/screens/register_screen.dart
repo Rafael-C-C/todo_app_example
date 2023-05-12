@@ -64,18 +64,11 @@ class _RegisterScreenBState extends State<RegisterScreenB> {
                       ReusableFormFieldBryan(
                         textController: nameController,
                         labelText: 'Usuario',
-                        onChanged: (value) {
-                          setState(() {
-                            nameCounter = nameController.text.length;
-                          });
-                        },
-                        hintText: 'Ingresa un nombre de usuario',
+                        hintText: 'Ingresa tu nombre',
                         maxLin: 1,
-                        helperText: 'Maximo 20 caracteres',
-                        counterText: '$nameCounter/20 caracteres',
                         prefixIcon: Icons.person,
                         formatter: [
-                          LengthLimitingTextInputFormatter(20),
+                          LengthLimitingTextInputFormatter(40),
                         ],
                         validator: (String? value) {
                           if (value!.isEmpty) {
@@ -93,12 +86,14 @@ class _RegisterScreenBState extends State<RegisterScreenB> {
                       ReusableFormFieldBryan(
                         textController: phoneController,
                         labelText: 'Telefono',
-                        hintText: '9999112233',
+                        hintText: 'Ingresa tu numero',
                         maxLin: 1,
                         keyboardType: TextInputType.phone,
                         prefixIcon: Icons.phone,
                         formatter: [
                           LengthLimitingTextInputFormatter(10),
+                          FilteringTextInputFormatter.allow(
+                              RegExp("[0-9a-zA-Z]")),
                         ],
                         validator: (String? value) {
                           if (value!.isEmpty) {
@@ -202,14 +197,9 @@ class _RegisterScreenBState extends State<RegisterScreenB> {
                             if (_registerKey.currentState!.validate()) {
                               _email = emailController.text;
                               _password = passwordController.text;
-                              confirmPasswordController;
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const LoginScreenB()));
+                              Navigator.pop(context);
                             } else {
-                              ('Por favor llene los campos correctamente');
+                              'Por favor llene los campos correctamente';
                             }
                           },
                         ),
