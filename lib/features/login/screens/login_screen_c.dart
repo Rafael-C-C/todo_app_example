@@ -107,6 +107,7 @@ class _LoginScreenCState extends State<LoginScreenC> {
               ),
             ),
             ReusableElevatedButton(
+              width: 200,
               title: "Crear cuenta",
               press: () {
                 if (_loginKey.currentState!.validate()) {
@@ -134,7 +135,7 @@ class _LoginScreenCState extends State<LoginScreenC> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("No tienes cuenta"),
+                const Text("¿No tienes cuenta?"),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
