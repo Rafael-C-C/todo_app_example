@@ -8,6 +8,8 @@ import 'package:todo_app_tus_test/features/profile/widgets/Text/row_text_indicat
 import 'package:todo_app_tus_test/features/profile/widgets/buttons/row_buttons.dart';
 import 'package:todo_app_tus_test/features/profile/widgets/list_of_activities/activities_list.dart';
 
+import '../../login/screens/login_screen_c.dart';
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
@@ -41,7 +43,8 @@ class ProfileScreen extends StatelessWidget {
                     },
                     press3: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const LoginScreenP()));
+                        builder: (context) => const LoginScreenC(),
+                      ));
                     },
                   )
                 ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app_tus_test/core/resources/themes/primary_theme.dart';
+import 'package:todo_app_tus_test/core/resources/themes/secondary_theme.dart';
 
 import 'features/home/screens/home_screen.dart';
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: PrimaryTheme.lightTheme,
+      theme: SecondaryTheme.lightThemeC,
       home: const HomeScreen(),
     );
   }

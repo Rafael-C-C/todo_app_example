@@ -56,9 +56,9 @@ class PrimaryTheme {
       //Theme of outlinedbuttom
       outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
-        backgroundColor: Colors.orange.shade700,
+        backgroundColor: const Color.fromARGB(255, 28, 54, 249),
         maximumSize: const Size(90, 75),
-        surfaceTintColor: const Color(0xFFDA7000),
+        surfaceTintColor: const Color.fromARGB(255, 30, 41, 250),
         fixedSize: const Size(double.infinity, 0.75),
         padding: const EdgeInsets.all(0),
         side: const BorderSide(
