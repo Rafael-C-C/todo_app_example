@@ -10,7 +10,7 @@ class ReusableElevatedButtonP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed:  () => function,
+      onPressed: function,
       style: styledButton,
       child: Text(title),
     );

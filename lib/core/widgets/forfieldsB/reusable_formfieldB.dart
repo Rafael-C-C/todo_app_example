@@ -14,6 +14,7 @@ class ReusableFormFieldBryan extends StatelessWidget {
   final Widget? suffix;
   final Function(String?)? onSaved;
   final String? Function(String?)? validator;
+  final TextInputType keyboardType;
   final void Function()? onPress;
   const ReusableFormFieldBryan({
     super.key,
@@ -30,6 +31,7 @@ class ReusableFormFieldBryan extends StatelessWidget {
     this.suffix,
     this.validator,
     this.onSaved,
+    this.keyboardType = TextInputType.name,
   });
 
   @override
@@ -40,6 +42,7 @@ class ReusableFormFieldBryan extends StatelessWidget {
       onSaved: onSaved,
       inputFormatters: formatter,
       obscureText: obscureText,
+      keyboardType: keyboardType,
       controller: textController,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),

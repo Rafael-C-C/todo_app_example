@@ -3,15 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:todo_app_tus_test/core/widgets/buttonsB/reusable_button_b.dart';
 import 'package:todo_app_tus_test/core/widgets/forfieldsB/reusable_formfieldB.dart';
 import 'package:todo_app_tus_test/features/home/screens/home_screen.dart';
+import 'package:todo_app_tus_test/features/register/screens/register_screen.dart';
 
-class LoginScreen2 extends StatefulWidget {
-  const LoginScreen2({super.key});
+class LoginScreenB extends StatefulWidget {
+  const LoginScreenB({super.key});
 
   @override
-  State<LoginScreen2> createState() => _LoginScreenState();
+  State<LoginScreenB> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen2> {
+class _LoginScreenState extends State<LoginScreenB> {
   final _loginKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -68,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen2> {
                           },
                         ),
                         const SizedBox(
-                          height: 50,
+                          height: 20,
                         ),
                         ReusableFormFieldBryan(
                           textController: passwordController,
@@ -94,22 +95,47 @@ class _LoginScreenState extends State<LoginScreen2> {
                           },
                         ),
                         const SizedBox(
-                          height: 50,
+                          height: 20,
                         ),
-                        ReusabelButton(
-                          title: 'Iniciar sesión',
-                          press: () {
-                            if (_loginKey.currentState!.validate()) {
-                              email = emailController.text;
-                              password = passwordController.text;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HomeScreen()));
-                            } else {
-                              ('Por favor llene los campos correctamente');
-                            }
-                          },
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              ReusabelButton(
+                                title: 'Iniciar sesión',
+                                press: () {
+                                  if (_loginKey.currentState!.validate()) {
+                                    email = emailController.text;
+                                    password = passwordController.text;
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const HomeScreen()));
+                                  } else {
+                                    ('Por favor llene los campos correctamente');
+                                  }
+                                },
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const RegisterScreenB()));
+                                },
+                                child: const Text(
+                                  'Registrate Aqui',
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         )
                       ],
                     )),
