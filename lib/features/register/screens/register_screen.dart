@@ -15,6 +15,8 @@ class _RegisterScreenBState extends State<RegisterScreenB> {
   final _registerKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
 
@@ -23,10 +25,18 @@ class _RegisterScreenBState extends State<RegisterScreenB> {
   String _name = '';
   int _phone = 0;
   bool isVisible = true;
+  bool isVisible2 = true;
+  int nameCounter = 0;
 
   void _verPassword() {
     setState(() {
       isVisible = !isVisible;
+    });
+  }
+
+  void _verPassword2() {
+    setState(() {
+      isVisible2 = !isVisible2;
     });
   }
 
@@ -54,11 +64,18 @@ class _RegisterScreenBState extends State<RegisterScreenB> {
                       ReusableFormFieldBryan(
                         textController: nameController,
                         labelText: 'Usuario',
-                        hintText: 'Tilino',
+                        onChanged: (value) {
+                          setState(() {
+                            nameCounter = nameController.text.length;
+                          });
+                        },
+                        hintText: 'Ingresa un nombre de usuario',
                         maxLin: 1,
+                        helperText: 'Maximo 20 caracteres',
+                        counterText: '$nameCounter/20 caracteres',
                         prefixIcon: Icons.person,
                         formatter: [
-                          LengthLimitingTextInputFormatter(10),
+                          LengthLimitingTextInputFormatter(20),
                         ],
                         validator: (String? value) {
                           if (value!.isEmpty) {
@@ -147,6 +164,36 @@ class _RegisterScreenBState extends State<RegisterScreenB> {
                       const SizedBox(
                         height: 20,
                       ),
+                      ReusableFormFieldBryan(
+                        textController: confirmPasswordController,
+                        labelText: 'Confirmar contraseña',
+                        maxLin: 1,
+                        keyboardType: TextInputType.visiblePassword,
+                        obscureText: isVisible2,
+                        prefixIcon: Icons.lock,
+                        suffix: InkWell(
+                          onTap: _verPassword2,
+                          child: Icon(
+                            isVisible2
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        validator: (String? value) {
+                          if (value!.isEmpty) {
+                            return 'Es necesario confirmar la contraseña';
+                          } else {
+                            if (value != passwordController.text) {
+                              return 'Las contraseñas no coinciden';
+                            }
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width,
                         child: ReusabelButton(
@@ -155,6 +202,7 @@ class _RegisterScreenBState extends State<RegisterScreenB> {
                             if (_registerKey.currentState!.validate()) {
                               _email = emailController.text;
                               _password = passwordController.text;
+                              confirmPasswordController;
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(

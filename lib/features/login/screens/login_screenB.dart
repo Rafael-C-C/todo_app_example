@@ -130,7 +130,6 @@ class _LoginScreenState extends State<LoginScreenB> {
                                   'Registrate Aqui',
                                   style: TextStyle(
                                     color: Colors.blue,
-                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),

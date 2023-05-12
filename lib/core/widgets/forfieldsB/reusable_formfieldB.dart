@@ -14,8 +14,11 @@ class ReusableFormFieldBryan extends StatelessWidget {
   final Widget? suffix;
   final Function(String?)? onSaved;
   final String? Function(String?)? validator;
+  final Function(String?)? onChanged;
   final TextInputType keyboardType;
   final void Function()? onPress;
+  final String? helperText;
+  final String? counterText;
   const ReusableFormFieldBryan({
     super.key,
     this.value,
@@ -31,7 +34,10 @@ class ReusableFormFieldBryan extends StatelessWidget {
     this.suffix,
     this.validator,
     this.onSaved,
+    this.helperText,
+    this.counterText,
     this.keyboardType = TextInputType.name,
+    this.onChanged,
   });
 
   @override
@@ -43,12 +49,15 @@ class ReusableFormFieldBryan extends StatelessWidget {
       inputFormatters: formatter,
       obscureText: obscureText,
       keyboardType: keyboardType,
+      onChanged: onChanged,
       controller: textController,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         hintText: hintText,
         labelText: labelText,
         suffix: suffix,
+        helperText: helperText,
+        counterText: counterText,
       ),
       validator: validator,
     );
