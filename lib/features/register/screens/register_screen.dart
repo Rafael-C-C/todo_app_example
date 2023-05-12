@@ -92,8 +92,7 @@ class _RegisterScreenBState extends State<RegisterScreenB> {
                         prefixIcon: Icons.phone,
                         formatter: [
                           LengthLimitingTextInputFormatter(10),
-                          FilteringTextInputFormatter.allow(
-                              RegExp("[0-9a-zA-Z]")),
+                          FilteringTextInputFormatter.allow(RegExp("[0-9]")),
                         ],
                         validator: (String? value) {
                           if (value!.isEmpty) {
